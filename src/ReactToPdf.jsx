@@ -22,7 +22,11 @@ class ReactToPdf extends PureComponent {
     html2canvas(targetComponent, {
       logging: false,
       useCORS: true,
-      scale: this.props.scale
+      scale: this.props.scale,
+      scrollX: 0,
+      scrollY: 0,
+      height: window.outerHeight + window.innerHeight,
+      windowHeight: window.outerHeight + window.innerHeight, 
     }).then(canvas => {
       const imgData = canvas.toDataURL();
       const pdf = new JsPdf(options);
